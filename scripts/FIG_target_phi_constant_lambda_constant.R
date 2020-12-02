@@ -104,7 +104,7 @@ g <- ggdraw() +
     draw_plot(g1, x = 0, y = .5, width = 1, height = .5)+
     draw_plot(g2, x = 0, y = 0, width = 0.87, height = .5)
 
-pdf(file="data/figures/FIG_target_phi_constant_lambda_constant.pdf",
+pdf(file="figures/FIG_target_phi_constant_lambda_constant.pdf",
          height = 7,
           width=9)    
 g

@@ -367,7 +367,7 @@ scale_linetype_manual(values=c("dotted","dashed","solid"))+
 scale_color_manual(values=c("olivedrab3", "#E69F00", "#56B4E9"))
 
 
-pdf("data/figures/FIG_modeling_of_overdispersion.pdf",
+pdf("figures/FIG_modeling_of_overdispersion.pdf",
   width = 8,
   height = 4.5
 )
@@ -397,7 +397,7 @@ xlab("log2(mean)")+
 ylab("log2(empirical variance / theoretical variance)")
 
 
-pdf("data/figures/FIG_modeling_of_overdispersion2.pdf",
+pdf("figures/FIG_modeling_of_overdispersion2.pdf",
   width = 9,
   height = 4.5
 )

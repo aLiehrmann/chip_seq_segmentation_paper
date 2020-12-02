@@ -83,7 +83,7 @@ g <- ggplot(aes(y=as.factor(model.lab2), x=accuracy), data=res_cv_all_linear_vs_
   labs(fill = "Better in average")
 
 
-pdf(file = "data/figures/comparison_learning_methods.pdf",
+pdf(file = "figures/comparison_learning_methods.pdf",
   width = 17,
   height = 8,
 )
@@ -188,7 +188,7 @@ g <- ggplot(aes(y=as.factor(lab2), x=diff.accuracy), data=res_cv_all_max_jump_vs
   )+
   ggtitle("reference model : max jump post-processing rule")
 
-pdf(file = "data/figures/comparison_post_processing_tules.pdf",
+pdf(file = "figures/comparison_post_processing_tules.pdf",
   width = 8,
   height = 3,
 )
@@ -273,7 +273,7 @@ g <- ggplot(aes(y=as.factor(lab2), x=diff.accuracy), data=res_cv_all_updown_pois
   )+
   ggtitle("reference model : updown poisson")
 
-pdf(file = "data/figures/updown_vs_other.pdf",
+pdf(file = "figures/updown_vs_other.pdf",
   width = 8,
   height = 3,
 )

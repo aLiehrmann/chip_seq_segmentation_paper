@@ -6,3 +6,4 @@
 
 **Keywords:** ChIP-seq; histone modifications; over-dispersion; peak calling; multiple changepoint detection; likelihood inference; supervised learning
 
+*Data are available [here](https://www.dropbox.com/s/ipwe1ecb0mg12u8/data.tar.gz?dl=0).*
