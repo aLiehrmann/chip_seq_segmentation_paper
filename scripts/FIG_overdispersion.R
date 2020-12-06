@@ -403,3 +403,91 @@ pdf("figures/FIG_modeling_of_overdispersion2.pdf",
 )
 print(g2)
 dev.off()
+
+# 12/04/2020
+
+library(ggpubr)
+library(gtable)
+library(grid)
+
+lab.model <- data.table(
+    label = "model assumption",
+    y = c(-2.5),
+    x = c(5),
+    type = c("H3K36me3\n(broad peaks)", "H3K4me3\n(sharp peaks)")
+)
+
+
+l[,lab:="trend (loess)"]
+
+g3 <- ggplot(
+    aes(
+    x=x, 
+    y=y), 
+    data = l
+)+
+facet_grid(type~lab)+
+geom_smooth(method = loess, aes(color= model), size=1, fill="lightgrey")+
+theme_bw()+
+theme(
+    legend.position="bottom",
+    text=element_text(size=14),
+    strip.background = element_rect(fill="grey95"),
+    panel.spacing = unit(0, "lines")
+)+
+geom_label(aes(label = label), data = lab.model,alpha=0.4,size=4, color = "red")+
+geom_hline(yintercept=0, color="red",size=0.8)+
+xlab("log2(mean)")+
+ylab("")+
+scale_color_manual(values=c("olivedrab3", "#E69F00", "#56B4E9"))
+
+legend <- gtable_filter(ggplotGrob(g3), 'guide-box')
+g3 <- g3 + theme(legend.position = "none")
+g3.bottom <- g3 + coord_cartesian(ylim=c(-8.5,9))
+g3.top <- g3 + coord_cartesian(ylim=c(-11,4))
+g3.grob <- ggplotGrob(g3.bottom)
+g3.grob.top <- ggplotGrob(g3.top)
+g3.grob[['grobs']][[6]] <- g3.grob.top[['grobs']][[6]] 
+g3.grob[['grobs']][[2]] <- g3.grob.top[['grobs']][[2]] 
+grid.draw(g3.grob)
+
+g4 <- ggplot(
+    aes(
+    x=x, 
+    y=y), 
+    data = l
+)+
+facet_grid(type ~ model)+
+geom_point(aes(color=model),shape=3, size=1)+
+theme_bw()+
+theme(
+    legend.position="bottom",
+    text=element_text(size=15),
+    strip.background = element_rect(fill="grey95"),
+    panel.spacing = unit(0, "lines")
+)+
+geom_hline(yintercept=0, color="red",size=0.8)+
+xlab("log2(mean)")+
+ylab("log2(empirical variance / theoretical variance)")+
+scale_color_manual(values=c("olivedrab3", "#E69F00", "#56B4E9"))+ 
+theme(legend.position = "none")
+
+g4.bottom <- g4 + coord_cartesian(ylim=c(-8.5,9))
+g4.top <- g4 + coord_cartesian(ylim=c(-11,4))
+g4.grob <- ggplotGrob(g4.bottom)
+g4.grob.top <- ggplotGrob(g4.top)
+g4.grob[['grobs']][[2]] <- g4.grob.top[['grobs']][[2]] 
+g4.grob[['grobs']][[4]] <- g4.grob.top[['grobs']][[4]] 
+g4.grob[['grobs']][[6]] <- g4.grob.top[['grobs']][[6]] 
+g4.grob[['grobs']][[14]] <- g4.grob.top[['grobs']][[14]] 
+grid.draw(g4.grob)
+
+
+g5 <- grid.arrange(as_ggplot(g4.grob),as_ggplot(g3.grob), ncol=2, bottom=legend$grobs[[1]]$grobs[[1]], widths=c(2, 1))
+
+pdf("figures/FIG_modeling_of_overdispersion3.pdf",
+  width = 12,
+  height = 5
+)
+grid.draw(g5)
+dev.off()
