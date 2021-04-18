@@ -1,6 +1,6 @@
 library(data.table)
 source("scripts/pick.best.index.R")
-load("data/dp.peaks.sets.4folds.RData")
+load("data/dp.peaks.sets.RData")
 load("data/dp.peaks.matrices.RData")
 
 default.params <- c(
@@ -78,6 +78,16 @@ for(set.name in names(dp.peaks.sets)){
 }#set
 
 test.error <- do.call(rbind, elist)
+
+# FOR ASSESSING ROBUSTNESS {
+# predicted_models <- test.error[algorithm=='MACS']
+# predicted_models[, chunk.name := test.chunk]
+# save(predicted_models, file="data_07_04_2021/predicted_models_MACS.RData")
+# predicted_models <- test.error[algorithm=='HMCanBroad']
+# predicted_models[, chunk.name := test.chunk]
+# save(predicted_models, file="data_07_04_2021/predicted_models_HMCAN.RData")
+#}
+
 roc <- do.call(rbind, roc.list)
 
 levs <- c(

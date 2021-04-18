@@ -153,7 +153,7 @@ g <- ggplot() +
     6305
   )) 
 
-pdf("figures/FIG_PDPA_rules_explain.pdf",
+pdf("figures/figure_PDPA_rules_explain.pdf",
   width = 9.5,
   height = 4,
 )

@@ -1,2 +1,12 @@
 data/*
+data_12/*
+data_07_04_2021/*
+data_05_04_2021/*
 data.tar.gz
+scripts/max_sum_rectangle.cpp
+scripts/CROCS.r
+scripts/download.r
+scripts_tmp/*
+figures/models/*
+figures/models2/*
+data.txt

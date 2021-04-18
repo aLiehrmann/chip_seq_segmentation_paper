@@ -4,7 +4,7 @@ library(furrr)
 plan(multiprocess, workers=10)
 
 
-load("data/all_modelSelection_PDPA_negbin_2.RData")
+load("data/all_modelSelection_PDPA_negbin.RData")
 load("data/dp.peaks.sets.RData")
 setkey(all.modelSelection,chunk.name)
 training_chunks <- unlist(dp.peaks.sets$H3K4me3_TDH_other[-4])
@@ -104,7 +104,7 @@ g <- ggdraw() +
     draw_plot(g1, x = 0, y = .5, width = 1, height = .5)+
     draw_plot(g2, x = 0, y = 0, width = 0.87, height = .5)
 
-pdf(file="figures/FIG_target_phi_constant_lambda_constant.pdf",
+pdf(file="figures/figure_target_phi_constant_lambda_constant.pdf",
          height = 7,
           width=9)    
 g

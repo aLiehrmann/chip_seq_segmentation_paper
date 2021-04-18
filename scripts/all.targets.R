@@ -15,16 +15,16 @@ f <- function(input, output) {
 
 params <- tibble::tribble(
   ~ input,                                                  ~ output,
-  "all_modelSelection_PDPA_negbin_2",                       "all_targets_PDPA_negbin_2",
+  "all_modelSelection_PDPA_negbin",                         "all_targets_PDPA_negbin",
   "all_modelSelection_PDPA_poisson",                        "all_targets_PDPA_poisson",
   "all_modelSelection_PDPA",                                "all_targets_PDPA",
-  "all_modelSelection_PDPA_negbin_2_largest_peak_rule",     "all_targets_PDPA_negbin_2_largest_peak_rule",
-  "all_modelSelection_PDPA_negbin_2_smallest_peak_rule",    "all_targets_PDPA_negbin_2_smallest_peak_rule",
+  "all_modelSelection_PDPA_negbin_largest_peak_rule",       "all_targets_PDPA_negbin_largest_peak_rule",
+  "all_modelSelection_PDPA_negbin_smallest_peak_rule",      "all_targets_PDPA_negbin_smallest_peak_rule",
   "all_modelSelection_PDPA_poisson_largest_peak_rule",      "all_targets_PDPA_poisson_largest_peak_rule",
   "all_modelSelection_PDPA_poisson_smallest_peak_rule",     "all_targets_PDPA_poisson_smallest_peak_rule",
   "all_modelSelection_PDPA_largest_peak_rule",              "all_targets_PDPA_largest_peak_rule",
   "all_modelSelection_PDPA_smallest_peak_rule",             "all_targets_PDPA_smallest_peak_rule",
-  "all_modelSelection_updown_negbin_2",                     "all_targets_updown_negbin_2",
+  "all_modelSelection_updown_negbin",                       "all_targets_updown_negbin",
   "all_modelSelection_updown_poisson",                      "all_targets_updown_poisson",
   "all_modelSelection_updown",                              "all_targets_updown"
 )

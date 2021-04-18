@@ -213,7 +213,7 @@ g <- ggplot()+
       yend=ymax),
     lineend = "round",
     data = df.segments,
-    size=3
+    size=2
   )+
   geom_text(aes(
     x = min(df.counts$chromEnd/10e3)-0.5,
@@ -255,7 +255,7 @@ g <- ggplot()+
     )
   )
 
-pdf("figures/FIG_labeled_data.pdf",
+pdf("figures/figure_labeled_data.pdf",
   width = 11 ,
   height = 4
 )

@@ -4,7 +4,7 @@ library(furrr)
 library(purrr)
 library(penaltyLearning)
 
-plan(multiprocess, workers=9)
+plan(multiprocess, workers=10)
 path_to_datasets <- "data/chunks"
 path_to_peaks_errors <- "data"
 path_to_output <- "data"
@@ -57,16 +57,16 @@ f <- function(algo_, peaks_errors, output) {
 
 params <- tibble::tribble(
   ~ algo_,            ~ peaks_errors,                                   ~ output,
-  "PDPA_negbin_2",   "PDPA_negbin_2_peaks_errors",                      "all_modelSelection_PDPA_negbin_2",
+  "PDPA_negbin",     "PDPA_negbin_peaks_errors",                        "all_modelSelection_PDPA_negbin",
   "PDPA_poisson",    "PDPA_poisson_peaks_errors",                       "all_modelSelection_PDPA_poisson",
   "PDPA",            "PDPA_peaks_errors",                               "all_modelSelection_PDPA",
-  "PDPA_negbin_2",   "PDPA_negbin_peaks_errors_2_largest_peak_rule",    "all_modelSelection_PDPA_negbin_2_largest_peak_rule",
-  "PDPA_negbin_2",   "PDPA_negbin_peaks_errors_2_smallest_peak_rule",   "all_modelSelection_PDPA_negbin_2_smallest_peak_rule",
+  "PDPA_negbin",     "PDPA_negbin_peaks_errors_largest_peak_rule",      "all_modelSelection_PDPA_negbin_largest_peak_rule",
+  "PDPA_negbin",     "PDPA_negbin_peaks_errors_smallest_peak_rule",     "all_modelSelection_PDPA_negbin_smallest_peak_rule",
   "PDPA_poisson",    "PDPA_poisson_peaks_errors_largest_peak_rule",     "all_modelSelection_PDPA_poisson_largest_peak_rule",
   "PDPA_poisson",    "PDPA_poisson_peaks_errors_smallest_peak_rule",    "all_modelSelection_PDPA_poisson_smallest_peak_rule",
   "PDPA",            "PDPA_peaks_errors_largest_peak_rule",             "all_modelSelection_PDPA_largest_peak_rule",
   "PDPA",            "PDPA_peaks_errors_smallest_peak_rule",            "all_modelSelection_PDPA_smallest_peak_rule",
-  "updown_negbin_2", "updown_negbin_2_peaks_errors",                    "all_modelSelection_updown_negbin_2",
+  "updown_negbin",   "updown_negbin_peaks_errors",                      "all_modelSelection_updown_negbin",
   "updown_poisson",  "updown_poisson_peaks_errors",                     "all_modelSelection_updown_poisson",
   "updown",          "updown_peaks_errors",                             "all_modelSelection_updown"
 )
